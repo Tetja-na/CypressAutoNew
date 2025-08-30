@@ -11,14 +11,40 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe('example to-do app', () => {
-  beforeEach(() => {
+describe('Перевірка кнопки Sign up та лінків з футера', () => {
+ beforeEach(() => {
+   cy.visit('https://guest:welcome2qauto@qauto.forstudy.space/');
+  
+
+    // Чекаємо поки завантажиться контент (наприклад, футер)
+    cy.get('footer', { timeout: 100000 });
+  });
+
+  it('Кнопка Sign up присутня', () => {
+  cy.contains('Sign up');
+  });
+
+it('Вивід усіх посилань', () => {
+  cy.get('a').each(($el) => {
+    cy.wrap($el).invoke('attr', 'href').then((href) => {
+      cy.log(href);
+    });
+  });
+});
+
+  it('Перевірка лінка на сайт Hillel', () => {
+  cy.contains('ithillel.ua', { timeout: 10000 }).should('exist');
+  });
+it('Перевірка email-посилання', () => {
+  cy.contains('support@ithillel.ua', { timeout: 10000 }).should('exist');
+});
+});
     // Cypress starts out with a blank slate for each test
     // so we must tell it to visit our website with the `cy.visit()` command.
     // Since we want to visit the same URL at the start of all our tests,
     // we include it in our beforeEach function so that it runs before each test
-    cy.visit('https://example.cypress.io/todo')
-  })
+    cy.visit('/')
+  
 
   it('displays two todo items by default', () => {
     // We use the `cy.get()` command to get all elements that match the selector.
@@ -140,4 +166,3 @@ describe('example to-do app', () => {
       cy.contains('Clear completed').should('not.exist')
     })
   })
-})
