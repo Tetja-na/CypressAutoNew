@@ -1,4 +1,5 @@
-const { defineConfig } = require("cypress");
+// cypress.config.js
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   reporter: "mochawesome",
@@ -9,8 +10,6 @@ module.exports = defineConfig({
     json: true
   },
   e2e: {
-    setupNodeEvents(on, config) {
-      return config;
     },
   },
 });
