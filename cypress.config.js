@@ -1,15 +1,18 @@
-// cypress.config.js
-const { defineConfig } = require('cypress');
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  reporter: "mochawesome",
-  reporterOptions: {
-    reportDir: "cypress/reports",
-    overwrite: true,
-    html: true,
-    json: true
-  },
   e2e: {
+    baseUrl: 'https://qauto.forstudy.space',
+    setupNodeEvents(on, config) {
+      // можна залишити порожнім
     },
   },
-);
+env: {
+  username: 'guest@forstudy.space',
+  password: 'welcome2qauto'
+},
+baseUrl: 'https://qauto.forstudy.space',
+  }
+  );
+
+
