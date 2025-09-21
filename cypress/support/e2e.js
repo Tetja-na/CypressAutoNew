@@ -14,4 +14,35 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
+Cypress.Commands.add('createExpense', (carId, liters, totalCost) => {
+  const date = new Date().toISOString().split('T')[0]; // поточна дата у форматі YYYY-MM-DD
+
+  cy.request({
+    method: 'POST',
+    url: '/api/expenses',
+    auth: {
+      username: 'guest',
+      password: 'welcome2qauto'
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: {
+      carId,
+      liters,
+      totalCost,
+      price: totalCost / liters,
+      date
+    }
+  }).then((res) => {
+    expect(res.status).to.eq(201);
+    expect(res.body.status).to.eq('ok');
+    cy.wrap(res.body.data).as('createdExpense');
+  });
+  Cypress.Cookies.defaults({
+  preserve: ['session_cookie_name'], // вкажи ім'я куки сесії
+})
+});
+
+
