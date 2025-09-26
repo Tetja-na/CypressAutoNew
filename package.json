@@ -3,18 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+"scripts": {
   "cy:open": "npx cypress open",
+
   "test:qauto": "cypress run --spec 'cypress/e2e/car_expense_api.cy.js' --config-file cypress.config.qauto.js",
   "test:qauto:headless": "cypress run --config-file cypress.config.qauto.js --headless",
-  "test:qauto:chrome": "cypress run --config-file cypress.config.qauto.js --browser chrome --headless",
+
+  "cy:open:firefox": "cypress open --browser firefox",
+  "cy:run:firefox": "cypress run --browser firefox",
+
   "test:qauto:firefox": "cypress run --config-file cypress.config.qauto.js --browser firefox --headless",
   "test:qauto:edge": "cypress run --config-file cypress.config.qauto.js --browser edge --headless",
+
   "test:qauto2": "cypress run --config-file cypress.config.qauto2.js --headed",
   "test:qauto2:headless": "cypress run --config-file cypress.config.qauto2.js --headless",
+
   "open:qauto": "cypress open --config-file cypress.config.qauto.js",
   "open:qauto2": "cypress open --config-file cypress.config.qauto2.js"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tetja-na/CypressAutoNew.git"
@@ -25,13 +31,10 @@
     "url": "https://github.com/Tetja-na/CypressAutoNew/issues"
   },
   "homepage": "https://github.com/Tetja-na/CypressAutoNew#readme",
-  "dependencies": {
-    "cypress": "^14.5.4"
-  },
   "devDependencies": {
+    "cypress": "^12.17.3",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^5.0.0",
-    "mochawesome-report-generator": "^6.2.0",
-    "cypress": "^13.6.0"
+    "mochawesome-report-generator": "^6.2.0"
   }
 }
