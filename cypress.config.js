@@ -3,7 +3,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    browser: 'chrome',
+    browser: 'firefox',
     baseUrl: 'https://qauto.forstudy.space',
     setupNodeEvents(on, config) {
       // можна залишити порожнім
