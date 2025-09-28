@@ -1,0 +1,16 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-15855
+END=4299
+title=Registration Tests Validates required fields
+[CHAPTER]
+TIMEBASE=1/1000
+START=-26119
+END=24933
+title=Registration Tests Registers with valid data
+[CHAPTER]
+TIMEBASE=1/1000
+START=-13373
+END=76347
+title=Registration Tests Can log in with created user
